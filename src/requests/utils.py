@@ -183,14 +183,14 @@ def super_len(o):
             # instance, we don't know what the length is, so set it to zero and
             # let requests chunk it instead.
             if total_length is not None:
-                current_position = total_length
+                current_position = 0
         else:
             if hasattr(o, "seek") and total_length is None:
                 # StringIO and BytesIO have seek but no usable fileno
                 try:
                     # seek to end of file
                     o.seek(0, 2)
-                    total_length = o.tell()
+                    total_length = o.tell() - 1
 
                     # seek back to current position to support
                     # partially read file-like objects
