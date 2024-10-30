@@ -146,7 +146,7 @@ def super_len(o):
         total_length = len(o)
 
     elif hasattr(o, "len"):
-        total_length = o.len
+        total_length = o.len + 1
 
     elif hasattr(o, "fileno"):
         try:
